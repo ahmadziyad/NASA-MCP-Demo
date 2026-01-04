@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "nasa-mcp": {
+      "command": "uv",
+      "args": ["run", "python", "nasa_mcp_server.py"],
+      "cwd": "./nasa-mcp-main",
+      "env": {
+        "NASA_API_KEY": <DEMO_KEY>
+      }
+    }
+  }
+}

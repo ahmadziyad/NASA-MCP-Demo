@@ -1,0 +1,289 @@
+{
+  "nasa_mcp_prompts": {
+    "search_images_data": {
+      "description": "Search NASA's image and video library",
+      "parameters": {
+        "q": "Search query string",
+        "size": "Number of results (1-20, default: 3)"
+      },
+      "prompt_categories": {
+        "space_missions": {
+          "examples": [
+            {
+              "prompt": "Find images of Mars rover missions",
+              "parameters": {"q": "Mars rover", "size": 5},
+              "expected_results": "Images of Curiosity, Perseverance, Opportunity rovers on Mars surface"
+            },
+            {
+              "prompt": "Show me Apollo 11 moon landing photos",
+              "parameters": {"q": "Apollo 11", "size": 4},
+              "expected_results": "Historic moon landing images, astronauts, lunar module"
+            },
+            {
+              "prompt": "Search for International Space Station images",
+              "parameters": {"q": "International Space Station", "size": 3},
+              "expected_results": "ISS in orbit, astronauts, space station modules"
+            },
+            {
+              "prompt": "Find Space Shuttle mission photos",
+              "parameters": {"q": "Space Shuttle", "size": 6},
+              "expected_results": "Shuttle launches, in-orbit operations, landing sequences"
+            }
+          ]
+        },
+        "celestial_objects": {
+          "examples": [
+            {
+              "prompt": "Find beautiful nebula images",
+              "parameters": {"q": "nebula", "size": 5},
+              "expected_results": "Colorful nebulae like Orion, Eagle, Crab nebulae"
+            },
+            {
+              "prompt": "Show me Saturn's rings",
+              "parameters": {"q": "Saturn rings", "size": 3},
+              "expected_results": "Detailed images of Saturn's ring system from various angles"
+            },
+            {
+              "prompt": "Search for galaxy images",
+              "parameters": {"q": "galaxy", "size": 4},
+              "expected_results": "Spiral, elliptical, and irregular galaxies"
+            },
+            {
+              "prompt": "Find images of Jupiter's Great Red Spot",
+              "parameters": {"q": "Jupiter Great Red Spot", "size": 3},
+              "expected_results": "Close-up images of Jupiter's famous storm system"
+            }
+          ]
+        },
+        "space_telescopes": {
+          "examples": [
+            {
+              "prompt": "Find Hubble Space Telescope images",
+              "parameters": {"q": "Hubble Space Telescope", "size": 5},
+              "expected_results": "Hubble telescope itself and its astronomical discoveries"
+            },
+            {
+              "prompt": "Show me James Webb telescope photos",
+              "parameters": {"q": "James Webb Space Telescope", "size": 4},
+              "expected_results": "JWST images and its deep space observations"
+            },
+            {
+              "prompt": "Search for Spitzer telescope observations",
+              "parameters": {"q": "Spitzer telescope", "size": 3},
+              "expected_results": "Infrared space observations from Spitzer"
+            }
+          ]
+        },
+        "earth_from_space": {
+          "examples": [
+            {
+              "prompt": "Show me Earth from space",
+              "parameters": {"q": "Earth from space", "size": 4},
+              "expected_results": "Blue marble images, Earth's curvature, continental views"
+            },
+            {
+              "prompt": "Find images of Earth at night",
+              "parameters": {"q": "Earth night lights", "size": 3},
+              "expected_results": "City lights, aurora, nighttime Earth photography"
+            },
+            {
+              "prompt": "Search for aurora images from space",
+              "parameters": {"q": "aurora from space", "size": 3},
+              "expected_results": "Northern and southern lights as seen from orbit"
+            }
+          ]
+        },
+        "astronauts_spacewalks": {
+          "examples": [
+            {
+              "prompt": "Find astronaut spacewalk images",
+              "parameters": {"q": "astronaut spacewalk", "size": 4},
+              "expected_results": "EVA activities, astronauts outside spacecraft"
+            },
+            {
+              "prompt": "Show me astronauts on the moon",
+              "parameters": {"q": "astronaut moon", "size": 5},
+              "expected_results": "Apollo astronauts on lunar surface, moon walks"
+            },
+            {
+              "prompt": "Search for astronaut training images",
+              "parameters": {"q": "astronaut training", "size": 3},
+              "expected_results": "Training facilities, simulation exercises, preparation"
+            }
+          ]
+        }
+      }
+    },
+    "get_nasa_apod": {
+      "description": "Get NASA's Astronomy Picture of the Day",
+      "parameters": {
+        "date": "Optional date in YYYY-MM-DD format (1995-06-16 to today)"
+      },
+      "prompt_categories": {
+        "current_featured": {
+          "examples": [
+            {
+              "prompt": "What's today's astronomy picture from NASA?",
+              "parameters": {},
+              "expected_results": "Current day's featured astronomical image with explanation"
+            },
+            {
+              "prompt": "Show me this week's featured space images",
+              "parameters": {},
+              "note": "Multiple calls needed for different dates"
+            }
+          ]
+        },
+        "historical_dates": {
+          "examples": [
+            {
+              "prompt": "Get NASA's astronomy picture for New Year's Day 2024",
+              "parameters": {"date": "2024-01-01"},
+              "expected_results": "APOD from January 1, 2024 with title and explanation"
+            },
+            {
+              "prompt": "Show me the very first astronomy picture of the day",
+              "parameters": {"date": "1995-06-16"},
+              "expected_results": "The inaugural APOD from June 16, 1995"
+            },
+            {
+              "prompt": "What was NASA's featured image on Christmas 2023?",
+              "parameters": {"date": "2023-12-25"},
+              "expected_results": "Christmas Day 2023 APOD with holiday astronomical theme"
+            },
+            {
+              "prompt": "Get the astronomy picture from the millennium celebration",
+              "parameters": {"date": "2000-01-01"},
+              "expected_results": "Y2K celebration APOD from January 1, 2000"
+            }
+          ]
+        },
+        "special_events": {
+          "examples": [
+            {
+              "prompt": "Show me the APOD from the solar eclipse date",
+              "parameters": {"date": "2017-08-21"},
+              "expected_results": "Solar eclipse APOD from the Great American Eclipse"
+            },
+            {
+              "prompt": "Get the astronomy picture from Mars rover landing day",
+              "parameters": {"date": "2021-02-18"},
+              "expected_results": "APOD from Perseverance rover landing date"
+            }
+          ]
+        }
+      }
+    },
+    "combined_workflows": {
+      "description": "Multi-step queries using both tools",
+      "examples": [
+        {
+          "workflow": "Mars Exploration Research",
+          "steps": [
+            {
+              "step": 1,
+              "action": "search_images_data",
+              "prompt": "Find current Mars rover images",
+              "parameters": {"q": "Mars rover Perseverance", "size": 3}
+            },
+            {
+              "step": 2,
+              "action": "search_images_data", 
+              "prompt": "Find historical Mars missions",
+              "parameters": {"q": "Mars Viking lander", "size": 2}
+            },
+            {
+              "step": 3,
+              "action": "get_nasa_apod",
+              "prompt": "Check if today's APOD is Mars-related",
+              "parameters": {}
+            }
+          ]
+        },
+        {
+          "workflow": "Space Telescope Comparison",
+          "steps": [
+            {
+              "step": 1,
+              "action": "search_images_data",
+              "prompt": "Find Hubble telescope images",
+              "parameters": {"q": "Hubble Space Telescope", "size": 4}
+            },
+            {
+              "step": 2,
+              "action": "search_images_data",
+              "prompt": "Find James Webb telescope images", 
+              "parameters": {"q": "James Webb Space Telescope", "size": 4}
+            },
+            {
+              "step": 3,
+              "action": "get_nasa_apod",
+              "prompt": "Get a recent APOD for context",
+              "parameters": {"date": "2024-01-01"}
+            }
+          ]
+        }
+      ]
+    },
+    "educational_prompts": {
+      "description": "Prompts designed for learning and teaching",
+      "categories": {
+        "elementary_level": [
+          "Find colorful pictures of planets for kids",
+          "Show me astronauts floating in space",
+          "Search for rocket launch images",
+          "Find pictures of Earth from space"
+        ],
+        "middle_school": [
+          "Find images that show the scale of the solar system",
+          "Search for pictures of different types of stars",
+          "Show me how rockets work with NASA images",
+          "Find images of space exploration history"
+        ],
+        "high_school": [
+          "Find images that demonstrate stellar evolution",
+          "Search for pictures showing galaxy formation",
+          "Show me images of exoplanet discovery methods",
+          "Find pictures that explain gravitational waves"
+        ],
+        "college_level": [
+          "Find images related to cosmic microwave background",
+          "Search for pictures of neutron star collisions",
+          "Show me images of dark matter research",
+          "Find pictures related to general relativity tests"
+        ]
+      }
+    },
+    "troubleshooting": {
+      "common_issues": {
+        "no_results": {
+          "problem": "Search returns no images",
+          "solutions": [
+            "Try broader search terms (e.g., 'Mars' instead of 'Mars Perseverance rover soil analysis')",
+            "Check spelling of astronomical terms",
+            "Use mission names (Apollo, Voyager, Cassini)",
+            "Try different synonyms (spacecraft vs satellite)"
+          ]
+        },
+        "apod_timeout": {
+          "problem": "APOD requests timeout",
+          "solutions": [
+            "This is normal - NASA's APOD API can be slow",
+            "Try historical dates (often more reliable)",
+            "Use specific dates rather than recent ones",
+            "Focus on image search which is more reliable"
+          ]
+        },
+        "too_many_results": {
+          "problem": "Search returns too many irrelevant images",
+          "solutions": [
+            "Use more specific terms",
+            "Add mission names or dates",
+            "Reduce the size parameter",
+            "Use quoted phrases for exact matches"
+          ]
+        }
+      }
+    }
+  }
+}
